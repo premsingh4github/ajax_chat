@@ -16,19 +16,40 @@
                            <h3 class="panel-title">Register</h3>
                        </div>
                        <div class="panel-body">
-                           <form role="form" method="POST">
+                          <?php
+                            if(@$success){
+                              ?>
+                              <div class="alert alert-success">
+                                <strong>Success!</strong> <?php echo $success; ?>
+                              </div>
+                              <?php
+                            }
+
+                           ?>
+                           <?php
+                             if(@$error){
+                               ?>
+                               <div class="alert alert-danger">
+                                 <strong>Sorry!</strong><?php echo $error; ?>
+                               </div>
+                               <?php
+                             }
+
+                            ?>
+                          
+                           <form id="signupform" action="register.php" role="form" method="POST">
                                <fieldset>
                                    <div class="form-group">
                                     <label>
                                         Username
                                     </label>
-                                       <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+                                       <input class="form-control" placeholder="Username" name="username" type="text" required="required" autofocus>
                                    </div>
                                    <div class="form-group">
                                     <label>
                                         Email
                                     </label>
-                                       <input class="form-control" placeholder="Email" name="email" type="email" autofocus>
+                                       <input class="form-control" placeholder="Email" name="email" required type="email" autofocus>
                                    </div>
                                    <div class="form-group">
                                       <label>
@@ -40,7 +61,7 @@
                                       <label>
                                           Confrm - Password
                                       </label>
-                                       <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                       <input class="form-control" placeholder="Password" name="password_confirmation" type="password" value="">
                                    </div>
 
                                    <div class="checkbox">
@@ -49,7 +70,7 @@
                                        </label>
                                    </div>
                                    <!-- Change this to a button or input when using this as a form -->
-                                   <button class="btn  btn-success btn-block">Register</button>
+                                   <button name="register" type="submit" class="btn  btn-success btn-block">Register</button>
                                    <a href="index.php" class="btn  btn-success btn-block">Login</a>
                                </fieldset>
                            </form>
@@ -58,6 +79,7 @@
                </div>
            </div>
        </div>
+
     
 <?php
 	include('tpl/footer.php');

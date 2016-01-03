@@ -6,7 +6,7 @@
 	{
 		global $db;
 		
-		$query = $db->query("SELECT * FROM users");
+		$query = $db->query("SELECT * FROM c_user");
 		
 		return $db->results($query);
 	}	

@@ -694,6 +694,7 @@ function google_maps(element, lat, long)
 }
 
 // setInterval("realtime_chat()", 7000);
+debugger;
 setInterval("realtime_chat()", 500);
 // setInterval("refresh_chats()", 10000);
 setInterval("refresh_chats()", 500);

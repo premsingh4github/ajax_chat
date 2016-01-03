@@ -16,6 +16,16 @@
                            <h3 class="panel-title">Please Sign In</h3>
                        </div>
                        <div class="panel-body">
+                          <?php
+                            if(@$error){
+                              ?>
+                              <div class="alert alert-danger">
+                                <strong>Sorry!</strong> Invalid Credential
+                              </div>
+                              <?php
+                            }
+
+                           ?>
                            <form role="form" method="POST">
                                <fieldset>
                                    <div class="form-group">
@@ -30,7 +40,7 @@
                                        </label>
                                    </div>
                                    <!-- Change this to a button or input when using this as a form -->
-                                   <button class="btn  btn-success btn-block">Login</button>
+                                   <button type="submit" name="login" class="btn  btn-success btn-block">Login</button>
                                    <a href="register.php" class="btn  btn-success btn-block">Register</a>
                                </fieldset>
                            </form>

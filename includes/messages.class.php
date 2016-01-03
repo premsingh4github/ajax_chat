@@ -25,7 +25,8 @@
 		public $messages_table = 'messages';
 		
 		// Users Table
-		public $users_table = 'users';
+		//public $users_table = 'users';
+		public $users_table = 'c_user';
 		
 		// Friends Table
 		public $friends_table = 'friends';
@@ -267,8 +268,9 @@
 		{
 			global $db;
 			
-			if($db->sanitize_integer($user_id) !== 0)
+			if($db->sanitize_integer() !== 0)
 			{
+				//$query = $db->query(sprintf("SELECT id, id AS user_id, id AS friend FROM $this->users_table WHERE id != $this->logged_user_id $limit"));
 				$query = $db->query(sprintf("SELECT id, id AS user_id, id AS friend FROM $this->users_table WHERE id != $this->logged_user_id $limit"));
 						 
 				if($db->num_rows($query) > 0)
@@ -314,6 +316,12 @@
 			} else {
 				return count($count);	
 			}
+		}
+		// count all contacts
+		public function count_all_contacts(){
+			global $db;
+			$query = $db->query(sprintf("SELECT id FROM $this->users_table"));
+			return $db->num_rows($query);
 		}
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -956,6 +964,13 @@
 					return false;	
 				}
 		}
+		public function login($username,$password){
+			global $db;
+			$query = $db->query("SELECT * FROM $this->users_table WHERE user_name = '$username' AND user_pw = '$password'");
+			$row = $db->fetch_row($query);
+			return $row;
+		}
 	}
+
 	
 ?>

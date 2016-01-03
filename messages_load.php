@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-6 padding-none"><a href="#" id="tab-contacts" class="tab">
             	<div id="loadingDiv-contacts"></div>
-            	<span class="glyphicon glyphicon-user"></span> Contacts (<?php echo $msg->count_contacts($msg->logged_user_id); ?>)</a>
+            	<span class="glyphicon glyphicon-user"></span> Contacts (<?php echo $msg->count_all_contacts() ; ?>)</a>
             </div>
             <div class="clearfix"></div>
         </div>
